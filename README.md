@@ -67,5 +67,5 @@
 Нужно зайти в магазин.
 
 Решение:
-1. Решение от 18 март 2026г. ()
+1. Решение от 18 март 2026г. [()](https://github.com/Ruzilya372/python-practice/blob/main/Worker-Maxim-v1.py)
 2. Решение от 9 июнь 2026г. [./Worker-Maxim.py](https://github.com/Ruzilya372/python-practice/blob/main/README.md)

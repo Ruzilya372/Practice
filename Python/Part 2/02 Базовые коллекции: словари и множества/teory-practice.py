@@ -239,3 +239,121 @@ team_travelling = [
 print(team_rest)
 print(team_training)
 print(team_travelling)
+
+# ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+"""Задача 1. Создание кортежей
+Заполните один кортеж десятью случайными целыми числами от 0 до 5 включительно.
+Также заполните второй кортеж числами от −5 до 0. Объедините два кортежа, 
+создав тем самым третий кортеж. С помощью метода кортежа определите в нём количество
+нулей. Выведите на экран третий кортеж и количество нулей в нём."""
+
+import random
+
+first_list = list()
+for elem in range(10):
+    first_rnd = random.randint(0,5)
+    first_list.append(first_rnd)
+
+first_tuple = tuple(first_list)
+print(first_list)
+
+second_list = list()
+for elem in range(10):
+    second_rnd = random.randint(-5,0)
+    second_list.append(second_rnd)
+
+second_tuple = tuple(second_list)
+print(second_list)
+
+third_tuple = first_tuple + second_tuple
+print(third_tuple)
+# ----------------------------------------------------------
+
+"""Задача 2. Цилиндр
+Андрей однажды уже писал функции для расчёта площади сферы и объёма шара. 
+И теперь для своей курсовой работы ему пришлось связаться с цилиндрами.
+
+Пользователь вводит два значения: радиус и высоту. 
+Напишите функцию для расчёта площади боковой поверхности цилиндра и его 
+полной площади. Функция должна возвращать два эти значения. 
+После этого в основной программе выводятся оба ответа в две строки.
+
+Площадь боковой поверхности (r — радиус, h — высота):
+side = 2п * r * h
+Полная площадь (S — площадь круга, которая вычисляется по формуле п*r^2‌):
+full = side + 2*S"""
+import math
+
+def calculate_radius_and_height(r, h):
+    side = 2 * math.pi * r * h
+    full_area= side * 2 * (math.pi * r ** 2)
+
+    return side, full_area
+
+radius = float(input("Введите радиус: "))
+height = float(input("Введите высоту: "))
+
+side, full_area = calculate_radius_and_height(radius, height)
+
+print("Площадь боковой поверхности:", round(side,2))
+print("Полная площадь:", round(full_area, 2))
+# -------------------------------------------------------------------
+
+"""Задача 3. Неправильный код
+Дан код, в котором должно происходить следующее: 
+изначально есть кортеж из пяти чисел. 
+Затем вызывается функция, которая получает на вход кортеж чисел, 
+генерирует случайный индекс и случайное значение, а затем по этим индексу 
+и значению меняет сам кортеж. Функция должна возвращать кортеж и случайное значение.
+
+В основном коде функция используется два раза, и на экран два раза выводится 
+новый кортеж и случайное значение. Причём второй раз выводится сумма первого 
+случайного значения и второго.
+
+Однако код, который вам дали, оказался нерабочим. 
+Исправьте его в соответствии с описанием.
+
+import random
+
+def change(nums):
+
+    index = random.randint(0, 5)
+
+    value = random.randint(100, 1000)
+
+    nums[index] = value
+
+    return nums, value
+
+
+my_nums = 1, 2, 3, 4, 5
+
+
+new_nums, rand_val = change(my_nums)
+
+print(new_nums, rand_val)
+
+new_nums = change(new_nums)
+
+rand_val += change(new_nums)
+
+print(new_nums, rand_val)
+"""
+
+import random
+
+def change(nums):
+    nums_list = list(nums)
+    index = random.randint(0, 4)
+    value = random.randint(100, 1000)
+    nums_list[index] = value
+    return tuple(nums_list), value
+
+
+my_nums = (1, 2, 3, 4, 5)
+
+new_nums, rand_val_1 = change(my_nums)
+print(new_nums, rand_val_1)
+
+new_nums, rand_val_2 = change(new_nums)
+print(new_nums, rand_val_2 + rand_val_1)

@@ -1,6 +1,10 @@
 import os
 
 
+def check_lenght(element):
+    if len(element) < 3:
+        raise ValueError
+
 count_charachter = 0
 line_number = 0
 
@@ -11,9 +15,8 @@ with open(os.path.join('Module23', '01_names_2', 'people.txt'), 'r', encoding = 
         line = line.rstrip()
 
         try:
-            if len(line) < 3:
-                raise ValueError
-
+            check_lenght(line)
+            
         except ValueError:
             print("Ошибка: менее трёх символов в строке", line_number)
 
